@@ -1,0 +1,131 @@
+자료수집에서는 api 는 관련 x
+질문에 맞는 
+
+마이홈 공공주택 찾아주는 거.
+https://www.myhome.go.kr/hws/portal/sch/selectRentalHouseInfoListView.do
+
+법원 소송
+https://www.scourt.go.kr/portal/information/finalruling/peruse/peruse_status.jsp
+
+alt + enter 엑셀 줄바꾸기
+
+
+
+
+
+
+챗지피티 API
+
+
+배경지식 -> 문서열람(PDF, 한글)해야하는 데이터는 X, 지피티가 열람을 못함. 홈페이지에서 얻을 수 있는 지식만 
+
+질문
+
+질문할게 있는 데이터 모으자 
+
+
+여행 킵
+
+서울시 공공데이터 서울시 
+
+한양도성 관심지점정보(국문)
+
+
+서울교통공사 역출구별 관광지 정보
+
+우리지역 위험요소 경향성 
+
+우리지역에 무엇이 위험한가 알려주는. 
+
+
+
+내가 불편한거 뭐가 있지??       
+
+목적성 주제
+
+하고 싶다. x
+다문화 가정의 교육을 해결하기 위한 xx 
+
+
+https://www.data.go.kr/suc/preliminaryRound.do
+
+
+v
+아무래도 우리가 원하는 데이터 테이블 형태의 자료를 찾기 힘들다. 우리가 직접 만들어 사용해야 할 거 같은데. 술 사전, 술 추천해주는 챗 지피티 open aop?
+ 
+
+
+축구 
+
+자주 붙는 팀들 그동안 서로 붙었을때 어느 팀이 자주 이겼는지 uipath로 크롤링해서 엑셀 만듬. 
+파이썬으로 머신러닝 돌리고 그 승률을 대쉬보드로 만들고 open api chat gpt 에 그 내용을 넣어서 이번에 어느팀이 이길지 예측해봐라고 하는거 
+
+
+https://www.shinsegae-lnb.com/html/product/wineView.html?idx=2174&s_brand=&s_sort=N&s_type=0&s_nation=0&s_region=0&s_page=1&s_data=
+https://www.shinsegae-lnb.com/html/product/wineView.html?idx=2173&s_brand=&s_sort=N&s_type=0&s_nation=0&s_region=0&s_page=1&s_data=
+https://www.shinsegae-lnb.com/html/product/wineView.html?idx=2172&s_brand=&s_sort=N&s_type=0&s_nation=0&s_region=0&s_page=1&s_data=
+
+
+
+https://www.shinsegae-lnb.com/html/product/wineView.html?idx=5&s_brand=&s_sort=N&s_type=0&s_nation=0&s_region=0&s_page=171&s_data=
+
+
+https://www.shinsegae-lnb.com/html/product/wineView.html?idx=2169
+
+
+
+
+가오도서관 장서/대출 목록
+
+http://data4library.kr/api/itemSrch?libCode=125008&startDt=2017-06-01&endDt=2017-06-30&authKey=[발급받은키]
+
+
+완전한 행복
+
+
+
+
+사건: ~한 문제가 있다. ~가 하고 싶다.   -> 문제 합의가 선행이 되야 한다. 그렇지 않으면 서로 딴 얘기
+
+
+
+원인: ~가 원인인 것 같다.(원인은 여러개가 될 수 있다.)  ~를 위해서 해야한다.  -> 확신 x
+
+
+
+
+해결책: 원인에 1:1 매칭  -> 해결책 원인에 기반.
+
+
+
+문제가 있으면 3단계 거처 원인을 찾음. 통계를 확인하며
+
+
+도서관 정보나루
+https://www.data4library.kr/
+
+List<string>(17) { "인기대출도서_2022-01", "인기대출도서_2022-02", "인기대출도서_2022-03", "인기대출도서_2022-04", "인기대출도서_2022-05", "인기대출도서_2022-06", "인기대출도서_2022-07", "인기대출도서_2022-08", "인기대출도서_2022-09", "인기대출도서_2022-10", "인기대출도서_2022-11", "인기대출도서_2022-12", "인기대출도서_2023-01", "인기대출도서_2023-02", "인기대출도서_2023-03", "인기대출도서_2023-04", "인기대출도서_2023-05" }
+
+
+https://docs.google.com/spreadsheets/d/1tblobX43al5cTplaZejN5Aoqv9eau7ZcvVDy_g-47kw/edit?usp=sharing
+
+
+고양시 도서관 kdc
+https://www.goyanglib.or.kr/ME/menu/10780/program/30006/searchKdc.do
+
+
+누적 데이터(도서별 이용분석 정보), 반감기, kdc
+
+
+riss 논문사이트
+
+
+아이템 매니아
+
+아이템 기준이 불분명하다. 분류를 하기 힘들다. 분류하기 힘드니 gpt한테 구체적으로 원하는 대답을 얻을 수 있을지? 의문
+
+챗봇 서비스 js 
+메일 서비스 rpa 책 추천 
+
+
+'nunique()' 함수 기억해.
