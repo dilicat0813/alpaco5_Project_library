@@ -138,3 +138,5 @@ ISBN_NO	 WRD_NM 	FQ_CO	ONE_WGHTVAL_VALUE	TWO_WGHTVAL_VALUE	THREE_WGHTVAL_VALUE �
 ISBN_NO인 고유한 책이 WRD_NM으로 검색되고 FQ_CO(빈도수)로 얼마나 자주 검색되냐인데 ONE_WGHTVAL_VALUE	TWO_WGHTVAL_VALUE	THREE_WGHTVAL_VALUE들은
 검색 가중치이다. ONE_WGHTVAL_VALUE는 책 제목에 직접적으로 관련된 검색어. TWO_WGHTVAL_VALUE는 저자, 옮긴이, 출판사 같은 거.
 THREE_WGHTVAL_VALUE는 책내용과 직접적으로 관련없지만 인터넷 서점에 나오는 책의 관련글 같은거??
+
+
