@@ -2,29 +2,47 @@
 # visit http://127.0.0.1:8050/ in your web browser.
 
 from dash import Dash, html, dcc
-import plotly.express as px
-from component.textbox import textbox
+from dash.dependencies import Input, Output, State
+from helper.chat_gpt import ask_chat_GPT
+import dash_bootstrap_components as dbc
 
-app = Dash(__name__)
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css', dbc.themes.CERULEAN]
 
-conversation = [
-    {
-        "speaker": 'user',
-        "text":"교육책 추천해줘"
-    },
-    {
-        "speaker": 'bot',
-        "text": "수학의 정석 추천합니다"
-    }
-]
-# 1. conversation을 for loop 돌려서 text가 밑으로 떨어지도록
-# 2. speaker에 따라서 bot_textbox, user_textbox 따로 사용
-# 3. bot_textbox, user_textbox 둘이 달라보이게 스타일링
-
+app = Dash(__name__, external_stylesheets=external_stylesheets, assets_folder='./assets')
 
 app.layout = html.Div(children=[
-    textbox('텍스트 박스 ')
+    html.Div([dcc.Loading(
+            id='loading-output',
+            type='circle',
+            children=[html.Div(id='output-container')]
+        ),
+    ], className='row'),
+
+    html.Div([
+        html.Div([
+            dcc.Input(id='input-box', type='text', placeholder='Send a message'),
+            dbc.Button('Submit', color="primary", id='submit-button', n_clicks=0),
+        ], className='input-container')
+    ], className='row')
 ])
+
+
+
+@app.callback(
+    Output('output-container', 'children'),
+    [Input('submit-button', 'n_clicks')],
+    [State('input-box', 'value')])
+def update_output(n_clicks, input_value):
+    try:
+        if n_clicks > 0:
+            answer = ask_chat_GPT(input_value)
+            return f'{answer}'
+        else:
+            return ''
+    except Exception as e:
+        print(e)
+        return "에러 발생"
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)
