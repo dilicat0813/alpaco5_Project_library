@@ -4,7 +4,7 @@ import os
 # REF https://platform.openai.com/docs/libraries
 
 openai.api_key = os.getenv('API_KEY')
-openai.organization = "org-hGPtZbB25DAWDQflBn094cUK" # https://platform.openai.com/account/org-settings
+openai.organization = "org-zIWpEpAT5tC5laOYXQgh16Vl" # https://platform.openai.com/account/org-settings #min
 MYSQL_PASSWORD = os.getenv('MYSQL_PASSWORD')
 
 # https://platform.openai.com/docs/models/gpt-3-5
