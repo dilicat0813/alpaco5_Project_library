@@ -8,9 +8,10 @@ def user_textbox(text, box="other"):
         "border-radius": "25px",
         "font-size":"large",
         "font-family":"sans-serif",
-        "margin-bottom":"25px"
+        "margin-bottom":"25px",
+        "font-weight":"bold"
     }
-    
-    color = "light"
+
+    color = "yellow"
     
     return dbc.Card(text, style=style, body=True, color=color)
