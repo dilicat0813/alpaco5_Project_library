@@ -2,10 +2,11 @@ import pymysql
 import pandas as pd
 import dash
 from dash import Dash, dcc, html, Input, Output, State
+import datetime
 
 
 ALLOWED_TYPES = ("email", "text")
-subscribe = pd.DataFrame(columns=["EMAIL", "KDC", "SRCHWRD"])
+subscribe = pd.DataFrame(columns=["EMAIL", "KDC", "SRCHWRD","DATE"])
 
 app = dash.Dash(__name__)
 
@@ -83,13 +84,16 @@ def cb_render(n_clicks, email_value, text_value, dropdown_value):
             "EMAIL": email_value,
             "KDC": dropdown_value,
             "SRCHWRD": text_value,
+            "DATE": datetime.datetime.now().strftime("%Y-%m-%d")
         }
         df = pd.DataFrame(data, index=[0])
         subscribe = pd.concat([subscribe, df], ignore_index=True)
-        subscribe.to_csv("subscribe.csv", index=False)  # 데이터프레임을 CSV 파일에 추가
+        current_date = datetime.datetime.now().strftime("%Y-%m-%d")
+        file_name = f"subscribe_{current_date}.csv"  # 매 날짜마다 새로운 csv 추가 생성 (불필요하면 삭제 예정)
+        subscribe.to_csv(file_name, index=False)  # 데이터프레임을 CSV 파일에 추가
         print(subscribe)
         
-        # Connect to MySQL #OS사용하지 않음 (일단 단순제작)
+        # Connect to MySQL
         conn = pymysql.connect(
             host='localhost',
             user='root',
@@ -103,7 +107,8 @@ def cb_render(n_clicks, email_value, text_value, dropdown_value):
         sql = f'''CREATE TABLE IF NOT EXISTS {tablename} (  
                 EMAIL varchar(255),
                 KDC varchar(255),
-                SRCHWRD varchar(255)
+                SRCHWRD varchar(255),
+                DATE date
                 )
               '''
         with conn.cursor() as cur:
@@ -112,18 +117,19 @@ def cb_render(n_clicks, email_value, text_value, dropdown_value):
 
         # Insert data into the table
         with conn.cursor() as cur:
-            for _, row in subscribe.iterrows():
+            for _, row in df.iterrows():
                 email = row['EMAIL']
                 kdc = row['KDC']
                 srchwrd = row['SRCHWRD']
-                sql = f"INSERT INTO {tablename} (EMAIL, KDC, SRCHWRD) VALUES ('{email}', '{kdc}', '{srchwrd}')"
+                date = row['DATE']
+                sql = f"INSERT INTO {tablename} (EMAIL, KDC, SRCHWRD, DATE) VALUES ('{email}', '{kdc}', '{srchwrd}', '{date}')"
                 cur.execute(sql)
             conn.commit()
 
         # Close the connection
         conn.close()
         return html.Div("구독을 신청하였습니다.", style={"color": "red", "margin-left": "120px"})
-
+  
 if __name__ == "__main__":
     app.run_server(debug=True)
 
