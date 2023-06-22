@@ -34,6 +34,7 @@ app.layout = html.Div(children=[
 ])
 
 
+
 @app.callback(
     Output('output_chat', 'children'),
     [Input('submit-button', 'n_clicks')],
@@ -46,7 +47,9 @@ def update_output(n_clicks, input_value):
     chat_generator_instance.add_chat(input_value, speaker="user")
     try:
         if n_clicks > 0:
-            answer = ask_chat_GPT(input_value)
+            sleep(0.5)
+            answer = "임시 답변"
+            #answer = ask_chat_GPT(input_value)
             chat_generator_instance.add_chat(answer, speaker="bot")
             return chat_generator_instance.make_chat_list()
         else:

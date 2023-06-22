@@ -9,9 +9,10 @@ def bot_textbox(text, box="other"):
         "font-family":"sans-serif",
         "margin-bottom":"25px",
         "font-weight":"bold",
-        "transform":"translate(0%, 18%)"
+        "transform":"translate(0%, 18%)",
+        "color":"white"
     }
 
-    color = "primary"
+    color = "royalblue"
     
     return dbc.Card(text, style=style, body=True, color=color)
