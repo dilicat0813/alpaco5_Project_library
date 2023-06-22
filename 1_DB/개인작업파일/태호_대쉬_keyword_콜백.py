@@ -103,7 +103,6 @@ app.layout = dbc.Container(
             placeholder=""), 
         html.Div(id="out-all-types2")
 ])
-    
 ])
 
 
