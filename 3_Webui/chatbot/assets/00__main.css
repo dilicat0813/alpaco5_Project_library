@@ -19,9 +19,12 @@
 }
 .chat_left{
   justify-content: start;
+  min-width: 800px;
+  border-bottom: dotted;
 }
 .chat_right{
   justify-content: end;
+  min-width: 800px;
 }
 .input-container {
   display: flex;
