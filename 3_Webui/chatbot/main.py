@@ -34,9 +34,15 @@ def make_chat_list(conversation):
     chat_list = []
     for chat in conversation:
         if chat["speaker"] == 'user':
-            chat_list.append(user_textbox(chat["text"]))
+            chat_list.append(
+                html.Div([
+                    user_textbox(chat["text"])
+                ], className="row chat_right"))
         elif chat["speaker"] == 'bot':
-            chat_list.append(bot_textbox(chat["text"]))
+            chat_list.append(
+                html.Div([
+                    bot_textbox(chat["text"])
+                ], className="row chat_left"))
     return chat_list
 
 chat_list = make_chat_list(conversation)
@@ -44,7 +50,10 @@ chat_list = make_chat_list(conversation)
 
 app.layout = html.Div(children=[
 
-    html.Div(chat_list, className="row "),
+    html.Div([
+        html.Div(chat_list, className="chat-container ")
+    ], className="row "),
+    
     html.Div([dcc.Loading(
             id='loading-output',
             type='circle',

@@ -5,7 +5,23 @@
   height: 100vh;
 }
 .row{
-  min-height: 10vh;
+  background-color: rgb(247, 247, 236);
+}
+.chat-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+.chat_left{
+  grid-column-start: 1;
+  grid-column-start: 2;
+}
+.chat_right{
+  grid-column-start: 2;
+  grid-column-start: 3;
 }
 .input-container {
   display: flex;

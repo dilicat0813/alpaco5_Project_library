@@ -7,10 +7,6 @@ def bot_textbox(text, box="other"):
         "padding": "10px 15px",
         "border-radius": "25px",
     }
-    box == "self"
-    style["margin-left"] = 0
-    style["margin-right"] = "auto"
     color = "primary"
-    inverse = True
     
-    return dbc.Card(text, style=style, body=True, color=color, inverse=inverse)
+    return dbc.Card(text, style=style, body=True, color=color)
