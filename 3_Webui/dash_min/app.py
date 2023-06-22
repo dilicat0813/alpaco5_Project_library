@@ -89,7 +89,8 @@ def cb_render(n_clicks, email_value, text_value, dropdown_value):
         df = pd.DataFrame(data, index=[0])
         subscribe = pd.concat([subscribe, df], ignore_index=True)
         current_date = datetime.datetime.now().strftime("%Y-%m-%d")
-        file_name = f"subscribe_{current_date}.csv"  # 매 날짜마다 새로운 csv 추가 생성 (불필요하면 삭제 예정)
+        file_name = "subscribe.csv"
+        #file_name = f"subscribe_{current_date}.csv"  # 매 날짜마다 새로운 csv 추가 생성 (불필요하면 삭제 예정)
         subscribe.to_csv(file_name, index=False)  # 데이터프레임을 CSV 파일에 추가
         print(subscribe)
         
