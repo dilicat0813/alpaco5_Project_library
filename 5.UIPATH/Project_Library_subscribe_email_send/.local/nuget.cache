@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gUSFRgDUw648iuhre92UjjeE6kJrJU+a4q5Z+NhqhS8etj//0VRWbkyz7cpb1Ww9hOxYVQSr/l2D7rHA30IyMQ==",
+  "dgSpecHash": "6kjf65R1IJXrsesyNM7Cfe0ev3OpbKcbWlIFoak8AM7KaOSRsetGTPF+OqXCsQ/IryptauPW/gyiIenwgWfPVg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mkh08\\OneDrive\\문서\\GitHub\\alpaco5_Project_library\\5.UIPATH\\Project_Library_subscribe_email_send\\.local\\",
+  "projectFilePath": "C:\\Users\\mkh08\\OneDrive\\문서\\uipath\\alphaco5_teamproject2\\alpaco5_Project_library\\5.UIPATH\\Project_Library_subscribe_email_send\\.local\\",
   "expectedPackageFiles": [
     "C:\\Users\\mkh08\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\mkh08\\.nuget\\packages\\azure.core\\1.18.0\\azure.core.1.18.0.nupkg.sha512",

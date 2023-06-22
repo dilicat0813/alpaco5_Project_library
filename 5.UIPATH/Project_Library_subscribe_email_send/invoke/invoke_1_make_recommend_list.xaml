@@ -2,7 +2,7 @@
   <x:Members>
     <x:Property Name="In_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>946.4,2174.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,2164</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -110,19 +110,19 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="956.8,2109.6" sap2010:WorkflowViewState.IdRef="Sequence_15">
+  <Sequence sap:VirtualizedContainerService.HintSize="956,2099" sap2010:WorkflowViewState.IdRef="Sequence_15">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="894.4,1997.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[In_Config(&quot;SourceData&quot;).ToString+&quot;\&quot;+In_Config(&quot;subscribe&quot;).ToString+In_Config(&quot;csv&quot;).ToString]">
+    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="894,1988" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[In_Config(&quot;SourceData&quot;).ToString+&quot;\&quot;+In_Config(&quot;subscribe&quot;).ToString+In_Config(&quot;csv&quot;).ToString]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="860.8,1888" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="860,1878" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="dt_subscribe" />
             </Sequence.Variables>
@@ -131,20 +131,20 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelReadRange AddHeaders="True" DataTable="[dt_subscribe]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="798.4,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_3" SheetName="[In_Config(&quot;subscribe&quot;).ToString]">
+            <ui:ExcelReadRange AddHeaders="True" DataTable="[dt_subscribe]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="798,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_3" SheetName="[In_Config(&quot;subscribe&quot;).ToString]">
               <ui:ExcelReadRange.Range>
                 <InArgument x:TypeArguments="x:String">
                   <Literal x:TypeArguments="x:String" Value="" />
                 </InArgument>
               </ui:ExcelReadRange.Range>
             </ui:ExcelReadRange>
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_subscribe]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="798.4,1676" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_subscribe]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="798,1667" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="764.8,1560" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="764,1552" sap2010:WorkflowViewState.IdRef="Sequence_10">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="str_email_recommendline" />
                     </Sequence.Variables>
@@ -153,13 +153,13 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="702.4,1448" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_4" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[In_Config(&quot;SourceData&quot;).ToString+&quot;\&quot;+CurrentRow(&quot;EMAIL&quot;).ToString+In_Config(&quot;csv&quot;).ToString]">
+                    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="702,1441" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_4" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[In_Config(&quot;SourceData&quot;).ToString+&quot;\&quot;+CurrentRow(&quot;EMAIL&quot;).ToString+In_Config(&quot;csv&quot;).ToString]">
                       <ui:ExcelApplicationScope.Body>
                         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="668.8,1338.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="668,1331" sap2010:WorkflowViewState.IdRef="Sequence_11">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="sd:DataTable" Name="DT_bookrecommend" />
                             </Sequence.Variables>
@@ -168,35 +168,35 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:ExcelReadRange AddHeaders="True" DataTable="[DT_bookrecommend]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="606.4,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_4" SheetName="[CurrentRow(&quot;EMAIL&quot;).ToString]">
+                            <ui:ExcelReadRange AddHeaders="True" DataTable="[DT_bookrecommend]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="606,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_4" SheetName="[CurrentRow(&quot;EMAIL&quot;).ToString]">
                               <ui:ExcelReadRange.Range>
                                 <InArgument x:TypeArguments="x:String">
                                   <Literal x:TypeArguments="x:String" Value="" />
                                 </InArgument>
                               </ui:ExcelReadRange.Range>
                             </ui:ExcelReadRange>
-                            <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Email_recommend" DataTable="[DT_bookrecommend]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="606.4,188" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
-                            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[DT_bookrecommend]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="606.4,705.6" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                            <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Email_recommend" DataTable="[DT_bookrecommend]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="606,186" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
+                            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[DT_bookrecommend]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="606,701" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                               <ui:ForEachRow.Body>
                                 <ActivityAction x:TypeArguments="sd:DataRow">
                                   <ActivityAction.Argument>
                                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow1" />
                                   </ActivityAction.Argument>
-                                  <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="572.8,589.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                  <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="572,586" sap2010:WorkflowViewState.IdRef="Sequence_12">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <If Condition="[CurrentRow1(&quot;BOOK_INTRCN_CN&quot;).tostring =&quot;&quot;]" sap:VirtualizedContainerService.HintSize="510.4,354.4" sap2010:WorkflowViewState.IdRef="If_1">
+                                    <If Condition="[CurrentRow1(&quot;BOOK_INTRCN_CN&quot;).tostring =&quot;&quot;]" sap:VirtualizedContainerService.HintSize="510,352" sap2010:WorkflowViewState.IdRef="If_1">
                                       <If.Then>
-                                        <Sequence sap:VirtualizedContainerService.HintSize="476.8,171.2" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                        <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_13">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
                                             <Assign.To>
                                               <OutArgument x:TypeArguments="x:Object">[CurrentRow1("BOOK_INTRCN_CN")]</OutArgument>
                                             </Assign.To>
@@ -210,15 +210,15 @@
                                         <Sequence sap2010:WorkflowViewState.IdRef="Sequence_14" />
                                       </If.Else>
                                     </If>
-                                    <Assign sap:VirtualizedContainerService.HintSize="510.4,83.2" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                    <Assign sap:VirtualizedContainerService.HintSize="510,83" sap2010:WorkflowViewState.IdRef="Assign_5">
                                       <Assign.To>
                                         <OutArgument x:TypeArguments="x:Object">[CurrentRow1("Email_recommend")]</OutArgument>
                                       </Assign.To>
                                       <Assign.Value>
-                                        <InArgument x:TypeArguments="x:String" xml:space="preserve">["ISBN: "+ CurrentRow1("ISBN_NO").ToString+ Environment.NewLine +
+                                        <InArgument x:TypeArguments="x:Object" xml:space="preserve">["ISBN: "+ CurrentRow1("ISBN_NO").ToString+ Environment.NewLine +
 "책 이름: "+CurrentRow1("TITLE_NM").ToString+ Environment.NewLine +
-"책 저자: "+CurrentRow1("AUTHR_NM").ToString+ Environment.NewLine +
-"출판사: " +CurrentRow1("PUBLISHER_NM").ToString+ Environment.NewLine +
+"책 저자: "+CurrentRow1("AUTHR_NM").ToString.replace(":", " ")+ Environment.NewLine +
+"출판사: " +CurrentRow1("PUBLISHER_NM").ToString.ToString.replace(":", " ")+ Environment.NewLine +
 "책 소개: " +CurrentRow1("BOOK_INTRCN_CN").ToString+ Environment.NewLine +
 "KDC분류기호: "+CurrentRow1("KDC_NM").ToString+ Environment.NewLine]</InArgument>
                                       </Assign.Value>
@@ -233,7 +233,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:ForEachRow>
-                            <ui:ExcelWriteRange AddHeaders="True" DataTable="[DT_bookrecommend]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="606.4,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="[CurrentRow(&quot;EMAIL&quot;).ToString]" StartingCell="A1" />
+                            <ui:ExcelWriteRange AddHeaders="True" DataTable="[DT_bookrecommend]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="606,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="[CurrentRow(&quot;EMAIL&quot;).ToString]" StartingCell="A1" />
                             <ui:ExcelSaveWorkbook DisplayName="Save Workbook" sap:VirtualizedContainerService.HintSize="606.4,24.8" sap2010:WorkflowViewState.IdRef="ExcelSaveWorkbook_1" />
                           </Sequence>
                         </ActivityAction>
