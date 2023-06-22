@@ -20,10 +20,56 @@
       "Path": "Project_Library.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "pswrd&Sequence_15",
+        "Str_recommend_total&Sequence_15",
         "Config_Path&Flowchart_1",
         "Config&Flowchart_1"
       ],
       "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "invoke/invoke_0_Config_Read.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "List_sheets&Sequence_60",
+        "out_DT_config&Sequence_60"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "In_Configpath",
+        "in_out_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "invoke/invoke_1_make_recommend_list.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_subscribe&Sequence_9",
+        "str_email_recommendline&Sequence_10",
+        "DT_bookrecommend&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "In_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "invoke/invoke_2_Send_email_to_subscriber.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Str_recommend_total&Sequence_20",
+        "dt_subscribe&Sequence_16",
+        "DT_bookrecommend&Sequence_17",
+        "str_Email_recommend&Sequence_19"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_pswrd",
+        "in_Config"
+      ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     }

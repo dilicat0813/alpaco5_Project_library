@@ -3,7 +3,7 @@
     <x:Property Name="In_Configpath" Type="InArgument(x:String)" />
     <x:Property Name="in_out_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1234,1578</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>831.2,1588.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -108,7 +108,7 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="840,1513" sap2010:WorkflowViewState.IdRef="Sequence_60">
+  <Sequence sap:VirtualizedContainerService.HintSize="841.6,1524" sap2010:WorkflowViewState.IdRef="Sequence_60">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(x:String)" Name="List_sheets" />
       <Variable x:TypeArguments="sd:DataTable" Name="out_DT_config" />
@@ -118,67 +118,67 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="778,1402" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_9" InstanceCachePeriod="3000" WorkbookPath="[In_Configpath]">
+    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="779.2,1412" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_9" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[In_Configpath]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="744,1292" sap2010:WorkflowViewState.IdRef="Sequence_59">
+          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="745.6,1302.4" sap2010:WorkflowViewState.IdRef="Sequence_59">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelGetWorkbookSheets sap2010:Annotation.AnnotationText="워크시트 이름 긁어오기 (리스트로 저장)&#xA;" DisplayName="Get Workbook Sheets" sap:VirtualizedContainerService.HintSize="682,67" sap2010:WorkflowViewState.IdRef="ExcelGetWorkbookSheets_1" Sheets="[List_sheets]">
+            <ui:ExcelGetWorkbookSheets sap2010:Annotation.AnnotationText="워크시트 이름 긁어오기 (리스트로 저장)&#xA;" DisplayName="Get Workbook Sheets" sap:VirtualizedContainerService.HintSize="683.2,68.8" sap2010:WorkflowViewState.IdRef="ExcelGetWorkbookSheets_1" Sheets="[List_sheets]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ExcelGetWorkbookSheets>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="682,1074" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[List_sheets]">
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="683.2,1081.6" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[List_sheets]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="648,888" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                  <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="649.6,893.6" sap2010:WorkflowViewState.IdRef="Sequence_58">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:ExcelReadRange AddHeaders="True" DataTable="[out_DT_config]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="606,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_9" SheetName="[currentText]">
+                    <ui:ExcelReadRange AddHeaders="True" DataTable="[out_DT_config]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="606.4,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_9" SheetName="[currentText]">
                       <ui:ExcelReadRange.Range>
                         <InArgument x:TypeArguments="x:String">
                           <Literal x:TypeArguments="x:String" Value="" />
                         </InArgument>
                       </ui:ExcelReadRange.Range>
                     </ui:ExcelReadRange>
-                    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[out_DT_config]" DisplayName="For Each Row in Data Table// call key-value" sap:VirtualizedContainerService.HintSize="606,578" sap2010:WorkflowViewState.IdRef="ForEachRow_7">
+                    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[out_DT_config]" DisplayName="For Each Row in Data Table// call key-value" sap:VirtualizedContainerService.HintSize="606.4,582.4" sap2010:WorkflowViewState.IdRef="ForEachRow_7">
                       <ui:ForEachRow.Body>
                         <ActivityAction x:TypeArguments="sd:DataRow">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="572,463" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="572.8,466.4" sap2010:WorkflowViewState.IdRef="Sequence_50">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <If Condition="[not string.IsNullOrWhiteSpace(CurrentRow(&quot;Name&quot;).ToString.Trim)]" sap:VirtualizedContainerService.HintSize="510,352" sap2010:WorkflowViewState.IdRef="If_7">
+                            <If Condition="[not string.IsNullOrWhiteSpace(CurrentRow(&quot;Name&quot;).ToString.Trim)]" sap:VirtualizedContainerService.HintSize="510.4,354.4" sap2010:WorkflowViewState.IdRef="If_7">
                               <If.Then>
-                                <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                                <Sequence sap:VirtualizedContainerService.HintSize="476.8,171.2" sap2010:WorkflowViewState.IdRef="Sequence_48">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_21">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:Object">[in_out_Config(Currentrow("Name").ToString)]</OutArgument>
                                     </Assign.To>
