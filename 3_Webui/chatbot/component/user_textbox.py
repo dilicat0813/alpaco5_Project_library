@@ -1,6 +1,6 @@
 import dash_bootstrap_components as dbc
 
-def textbox(text, box="other"):
+def user_textbox(text, box="other"):
     style = {
         "max-width": "55%",
         "width": "max-content",
