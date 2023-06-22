@@ -16,12 +16,10 @@
   padding: 10px;
 }
 .chat_left{
-  grid-column-start: 1;
-  grid-column-start: 2;
+  justify-content: start;
 }
 .chat_right{
-  grid-column-start: 2;
-  grid-column-start: 3;
+  justify-content: end;
 }
 .input-container {
   display: flex;
