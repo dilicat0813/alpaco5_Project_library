@@ -6,6 +6,7 @@ from helper.chat_gpt import ask_chat_GPT
 import dash_bootstrap_components as dbc
 from component.chat_generator import ChatGenerator
 from time import sleep
+from helper.gpt_search_csv import ask_librarian
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css', dbc.themes.CERULEAN]
 
@@ -13,7 +14,6 @@ app = Dash(__name__, external_stylesheets=external_stylesheets, assets_folder='.
 
 conversation = []
 chat_generator_instance = ChatGenerator(conversation)
-
 
 app.layout = html.Div(children=[
 
@@ -24,7 +24,7 @@ app.layout = html.Div(children=[
             children=[html.Div(className="chat-container", id='output_chat')]
         ),
     ], className="row "),
-    
+
     html.Div([
         html.Div([
             dcc.Input(id='input-box', type='text', placeholder='Send a message'),
@@ -34,22 +34,18 @@ app.layout = html.Div(children=[
 ])
 
 
-
 @app.callback(
     Output('output_chat', 'children'),
     [Input('submit-button', 'n_clicks')],
     [State('input-box', 'value')])
 def update_output(n_clicks, input_value):
-
     if not input_value:
         return chat_generator_instance.make_chat_list()
 
     chat_generator_instance.add_chat(input_value, speaker="user")
     try:
         if n_clicks > 0:
-            sleep(0.5)
-            answer = "임시 답변"
-            #answer = ask_chat_GPT(input_value)
+            answer = ask_chat_GPT(input_value)
             chat_generator_instance.add_chat(answer, speaker="bot")
             return chat_generator_instance.make_chat_list()
         else:
