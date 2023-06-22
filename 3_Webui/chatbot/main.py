@@ -4,63 +4,27 @@ from dash import Dash, html, dcc
 from dash.dependencies import Input, Output, State
 from helper.chat_gpt import ask_chat_GPT
 import dash_bootstrap_components as dbc
-from component.bot_textbox import bot_textbox
-from component.user_textbox import user_textbox
-
-
+from component.chat_generator import ChatGenerator
+from time import sleep
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css', dbc.themes.CERULEAN]
 
 app = Dash(__name__, external_stylesheets=external_stylesheets, assets_folder='./assets')
 
-conversation = [
-    {
-        "speaker":"user",
-        "text": "교육 책 추천해줘"
-    },
-    {
-        "speaker":"bot",
-        "text": "수학의 정석 추천합니다"
-    }
-]
-
-# 색 
-# 줄변경
-# 중앙 정렬 
-# 폰트
-#
-
-def make_chat_list(conversation):
-    chat_list = []
-    for chat in conversation:
-        if chat["speaker"] == 'user':
-            chat_list.append(
-                html.Div([
-                    user_textbox(chat["text"])
-                ], className="row chat_right"))
-        elif chat["speaker"] == 'bot':
-            chat_list.append(
-                html.Div([
-                    bot_textbox(chat["text"])
-                ], className="row chat_left"))
-    return chat_list
-
-chat_list = make_chat_list(conversation)
+conversation = []
+chat_generator_instance = ChatGenerator(conversation)
 
 
 app.layout = html.Div(children=[
 
     html.Div([
-        html.Div(chat_list, className="chat-container ")
-    ], className="row "),
-    
-    html.Div([dcc.Loading(
+        dcc.Loading(
             id='loading-output',
             type='circle',
-            children=[html.Div(id='output-container')]
+            children=[html.Div(className="chat-container", id='output_chat')]
         ),
-    ], className='row'),
-
+    ], className="row "),
+    
     html.Div([
         html.Div([
             dcc.Input(id='input-box', type='text', placeholder='Send a message'),
@@ -70,18 +34,24 @@ app.layout = html.Div(children=[
 ])
 
 
-
 @app.callback(
-    Output('output-container', 'children'),
+    Output('output_chat', 'children'),
     [Input('submit-button', 'n_clicks')],
     [State('input-box', 'value')])
 def update_output(n_clicks, input_value):
+
+    if not input_value:
+        return chat_generator_instance.make_chat_list()
+
+    chat_generator_instance.add_chat(input_value, speaker="user")
     try:
         if n_clicks > 0:
             answer = ask_chat_GPT(input_value)
-            return f'{answer}'
+            chat_generator_instance.add_chat(answer, speaker="bot")
+            return chat_generator_instance.make_chat_list()
         else:
-            return ''
+            chat_generator_instance.add_chat('에러가 발생하여 답변을 전달하지 못했습니다', speaker='bot')
+            return chat_generator_instance.make_chat_list()
     except Exception as e:
         print(e)
         return "에러 발생"
