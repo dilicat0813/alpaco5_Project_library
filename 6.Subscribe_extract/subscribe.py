@@ -54,5 +54,5 @@ def subscribe_list():
         DT_recommend.drop(columns=['BOOK_MASTR_SEQ_NO', 'MUMM_LON_HALFLIFE_CO', 'MXMM_LON_HALFLIFE_CO', 'AVRG_LON_HALFLIFE_CO', 'BOOK_CO','ISBN_THIRTEEN_NO','SEQ_NO','ADTION_SMBL_NM','LON_CO','Combined', 'KDC_1', 'KDC_12', 'KDC_123'],axis=1, inplace=True)
         
         file_path = os.path.join(folder_path, f"{file_name}.csv")
-        DT_recommend.to_csv(file_path, index=False, encoding='utf -8-sig') #RPA 소스 파일 저장
+        DT_recommend.to_csv(file_path, index=False, encoding='utf-8-sig') #RPA 소스 파일 저장
 
