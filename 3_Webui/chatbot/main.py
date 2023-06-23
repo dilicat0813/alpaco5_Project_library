@@ -5,11 +5,8 @@ from dash.dependencies import Input, Output, State
 
 import dash_bootstrap_components as dbc
 
-from time import sleep
-
 from component.subscribe import make_subscribe_html
 from component.chat_generator import ChatGenerator
-from helper.chat_gpt import ask_chat_GPT
 from helper.gpt_search_csv import ask_librarian
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css', dbc.themes.CERULEAN]
@@ -19,9 +16,7 @@ app = Dash(__name__, external_stylesheets=external_stylesheets, assets_folder='.
 conversation = []
 chat_generator_instance = ChatGenerator(conversation)
 
-app.layout = html.Div(children=[
-
-    html.Div([
+tab1 = [html.Div([
         dcc.Loading(
             id='loading-output',
             type='circle',
@@ -34,13 +29,19 @@ app.layout = html.Div(children=[
             dcc.Input(id='input-box', type='text', placeholder='Send a message'),
             dbc.Button('Submit', color="primary", id='submit-button', n_clicks=0),
         ], className='input-container')
-    ], className='row'),
-    
-    html.Div([
+    ], className='row'),]
+tab2 = [
+        html.Div([
         make_subscribe_html()
     ], className='row')
-    
-])
+]
+
+app.layout = html.Div(children=[
+    dbc.Tabs([
+        dbc.Tab(label='도서추천 봇', children=tab1),
+        dbc.Tab(label='도서추천 메일서비스', children=tab2), 
+    ])
+], className="body__sheet")
 
 
 @app.callback(
@@ -54,7 +55,7 @@ def update_output(n_clicks, input_value):
     chat_generator_instance.add_chat(input_value, speaker="user")
     try:
         if n_clicks > 0:
-            answer = ask_chat_GPT(input_value)
+            answer = ask_librarian(input_value)
             chat_generator_instance.add_chat(answer, speaker="bot")
             return chat_generator_instance.make_chat_list()
         else:
