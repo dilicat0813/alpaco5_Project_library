@@ -60,10 +60,8 @@ def update_output(n_clicks, input_value):
     chat_generator_instance.add_chat(input_value, speaker="user")
     try:
         if n_clicks > 0:
-            # answer = ask_librarian(input_value)
-            import time
-            time.sleep(0.5)
-            answer = '예시 답변 \n 다음 라인'
+            answer = ask_librarian(input_value)
+            
             chat_generator_instance.add_chat(answer, speaker="bot")
             return chat_generator_instance.make_chat_list()
         else:
