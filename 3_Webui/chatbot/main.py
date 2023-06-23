@@ -2,10 +2,14 @@
 # visit http://127.0.0.1:8050/ in your web browser.
 from dash import Dash, html, dcc
 from dash.dependencies import Input, Output, State
-from helper.chat_gpt import ask_chat_GPT
+
 import dash_bootstrap_components as dbc
-from component.chat_generator import ChatGenerator
+
 from time import sleep
+
+from component.subscribe import make_subscribe_html
+from component.chat_generator import ChatGenerator
+from helper.chat_gpt import ask_chat_GPT
 from helper.gpt_search_csv import ask_librarian
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css', dbc.themes.CERULEAN]
@@ -30,7 +34,12 @@ app.layout = html.Div(children=[
             dcc.Input(id='input-box', type='text', placeholder='Send a message'),
             dbc.Button('Submit', color="primary", id='submit-button', n_clicks=0),
         ], className='input-container')
+    ], className='row'),
+    
+    html.Div([
+        make_subscribe_html()
     ], className='row')
+    
 ])
 
 
