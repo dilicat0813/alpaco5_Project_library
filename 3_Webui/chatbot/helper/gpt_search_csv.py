@@ -37,7 +37,7 @@ def chat_gpt_input(text):
 
 def ask_librarian(question):
     csv_header = """ \"\"\" 
-                ,ISBN_NO,MUMM_LON_HALFLIFE_CO,TITLE_NM,AUTHR_NM,PUBLISHER_NM,BOOK_INTRCN_CN,Combined,KDC_1
+                ISBN_NO, TITLE_NM,AUTHR_NM,PUBLISHER_NM,BOOK_INTRCN_CN
                 \"\"\"
             """
 
@@ -46,6 +46,7 @@ def ask_librarian(question):
         AUTHR_NM: 저자 이름 
         PUBLISHER_NM: 출판사 
         BOOK_INTRCN_CN: 책 소개 
+        ISBN_NO: ISBN
         """
     """0. pandas 쿼리를 써야한다 다음과 같은 코드에서 answer_sql에 들어갈 값 ( pd.read_csv(csv_path); csv_data.query(answer_sql))"""
     prompt_asking_sql = """ 
@@ -66,23 +67,25 @@ def ask_librarian(question):
     answer_sql = chat_gpt_input(prompt_asking_sql)
     # Establishing the connection
 
-    print('answer_sql', answer_sql)
+    print('answer_sql raw:', answer_sql)
     answer_sql = answer_sql.replace("query", "").replace('Query', "").replace("QUERY", "").replace("쿼리", "")\
         .replace("정답", "").replace(":", "").replace("=", "").strip().strip('"').strip('\'')
-    print( answer_sql)
+    print("striped: ", answer_sql)
     # Checking if the connection was successful
-    query_result = csv_data.query(answer_sql)
-
+    query_result = csv_data.query(answer_sql)[['TITLE_NM', 'AUTHR_NM', 'PUBLISHER_NM','BOOK_INTRCN_CN','ISBN_NO']].head(8)
+    print("query_result:", query_result)
     final_question = """
-        사서라고 생각하고 행동해. 
-        아래와 같은 질문에 답변을 하기 위해서 pandas에 검색을해서 아래와 같은 결과가 나왔을 때
-        사용자에게 결과를 알려줘 
-        사용자 질문: {} 
-        csv header: {}
-        csv header 설명: {}
-        사용한 pandas 쿼리: {}
-        쿼리 결과: {}" 
-        """.format(question, csv_header, column_description, answer_sql, query_result)
+        책을 추천하는 사서라고 생각하고 말을 해야해
+        아래 데이터프레임을 파싱해서
+        데이터 프레임 column은 다음과 같이 파싱할 수 있다
+        1. 데이터프레임 헤더 정보: {}
+        2. 데이터프레임: {}
+        
+        책 제목, 저자, 출판사, ISBN을 알려주고
+        간단한 책 내용을 요약해서 알려준다
+        알려줄 정보는 데이터프레임에 있는 것만 알려줄 것
+        가독성이 좋도록 줄바꿈을 넣어 줄 것
+        """.format(column_description, query_result)
     final_answer = chat_gpt_input(final_question)
     return final_answer
 
