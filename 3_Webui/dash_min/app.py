@@ -94,41 +94,41 @@ def cb_render(n_clicks, email_value, text_value, dropdown_value):
         subscribe.to_csv(file_name, index=False)  # 데이터프레임을 CSV 파일에 추가
         print(subscribe)
         
-        # Connect to MySQL
-        conn = pymysql.connect(
-            host='localhost',
-            user='root',
-            password='1234',
-            db='library',
-            charset='utf8'
-        )
-        tablename ="Subscribe"
+        # # Connect to MySQL
+        # conn = pymysql.connect(
+        #     host='localhost',
+        #     user='root',
+        #     password='1234',
+        #     db='library',
+        #     charset='utf8'
+        # )
+        # tablename ="Subscribe"
 
-        # Create table if it doesn't exist
-        sql = f'''CREATE TABLE IF NOT EXISTS {tablename} (  
-                EMAIL varchar(255),
-                KDC varchar(255),
-                SRCHWRD varchar(255),
-                DATE date
-                )
-              '''
-        with conn.cursor() as cur:
-            cur.execute(sql)
-            conn.commit()
+        # # Create table if it doesn't exist
+        # sql = f'''CREATE TABLE IF NOT EXISTS {tablename} (  
+        #         EMAIL varchar(255),
+        #         KDC varchar(255),
+        #         SRCHWRD varchar(255),
+        #         DATE date
+        #         )
+        #       '''
+        # with conn.cursor() as cur:
+        #     cur.execute(sql)
+        #     conn.commit()
 
-        # Insert data into the table
-        with conn.cursor() as cur:
-            for _, row in df.iterrows():
-                email = row['EMAIL']
-                kdc = row['KDC']
-                srchwrd = row['SRCHWRD']
-                date = row['DATE']
-                sql = f"INSERT INTO {tablename} (EMAIL, KDC, SRCHWRD, DATE) VALUES ('{email}', '{kdc}', '{srchwrd}', '{date}')"
-                cur.execute(sql)
-            conn.commit()
+        # # Insert data into the table
+        # with conn.cursor() as cur:
+        #     for _, row in df.iterrows():
+        #         email = row['EMAIL']
+        #         kdc = row['KDC']
+        #         srchwrd = row['SRCHWRD']
+        #         date = row['DATE']
+        #         sql = f"INSERT INTO {tablename} (EMAIL, KDC, SRCHWRD, DATE) VALUES ('{email}', '{kdc}', '{srchwrd}', '{date}')"
+        #         cur.execute(sql)
+        #     conn.commit()
 
-        # Close the connection
-        conn.close()
+        # # Close the connection
+        # conn.close()
         return html.Div("구독을 신청하였습니다.", style={"color": "red", "margin-left": "120px"})
   
 if __name__ == "__main__":

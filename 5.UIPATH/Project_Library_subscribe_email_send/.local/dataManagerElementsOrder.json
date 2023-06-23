@@ -20,6 +20,7 @@
       "Path": "Project_Library.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "pyFn&Sequence_20",
         "pswrd&Sequence_15",
         "Str_recommend_total&Sequence_15",
         "Config_Path&Flowchart_1",

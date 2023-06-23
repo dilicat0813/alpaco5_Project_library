@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6kjf65R1IJXrsesyNM7Cfe0ev3OpbKcbWlIFoak8AM7KaOSRsetGTPF+OqXCsQ/IryptauPW/gyiIenwgWfPVg==",
+  "dgSpecHash": "elR5uI1qT21z0XKAXyzaKSEbH1iHAW7ZwDbrbGR0Al121ECIlrJ78qJKzNRzKn2nLQzadR916Sbglf3xyMLuPg==",
   "success": true,
   "projectFilePath": "C:\\Users\\mkh08\\OneDrive\\문서\\uipath\\alphaco5_teamproject2\\alpaco5_Project_library\\5.UIPATH\\Project_Library_subscribe_email_send\\.local\\",
   "expectedPackageFiles": [
@@ -275,6 +275,7 @@
     "C:\\Users\\mkh08\\.nuget\\packages\\uipath.ocr.activities\\3.15.1\\uipath.ocr.activities.3.15.1.nupkg.sha512",
     "C:\\Users\\mkh08\\.nuget\\packages\\uipath.ocr.contracts\\2.14.0\\uipath.ocr.contracts.2.14.0.nupkg.sha512",
     "C:\\Users\\mkh08\\.nuget\\packages\\uipath.platform\\23.4.1\\uipath.platform.23.4.1.nupkg.sha512",
+    "C:\\Users\\mkh08\\.nuget\\packages\\uipath.python.activities\\1.6.0\\uipath.python.activities.1.6.0.nupkg.sha512",
     "C:\\Users\\mkh08\\.nuget\\packages\\uipath.system.activities\\23.4.3\\uipath.system.activities.23.4.3.nupkg.sha512",
     "C:\\Users\\mkh08\\.nuget\\packages\\uipath.system.runtime.windows\\23.4.3\\uipath.system.runtime.windows.23.4.3.nupkg.sha512",
     "C:\\Users\\mkh08\\.nuget\\packages\\uipath.telemetry.client\\1.5.3\\uipath.telemetry.client.1.5.3.nupkg.sha512",
