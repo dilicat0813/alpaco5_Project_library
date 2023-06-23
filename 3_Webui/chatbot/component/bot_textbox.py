@@ -1,4 +1,5 @@
 import dash_bootstrap_components as dbc
+from dash import html
 
 def bot_textbox(text, box="other"):
     style = {
@@ -15,5 +16,14 @@ def bot_textbox(text, box="other"):
     }
 
     color = "royalblue"
-    
-    return dbc.Card(text, style=style, body=True, color=color)
+    text_with_linebreak = []
+    for line in text.split('\n'):
+        text_with_linebreak.append(line)
+        text_with_linebreak.append(html.Br())
+    text_with_linebreak.pop()
+        
+    return dbc.Card([
+        html.P(
+            text_with_linebreak,
+            className="card-text",
+        ),], style=style, body=True, color=color)

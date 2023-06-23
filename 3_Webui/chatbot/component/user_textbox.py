@@ -1,5 +1,5 @@
 import dash_bootstrap_components as dbc
-
+from dash import html
 def user_textbox(text, box="other"):
     style = {
         "width":"fit-content",
@@ -13,6 +13,15 @@ def user_textbox(text, box="other"):
         "transform":"translate(0%, 0%)"
     }
 
-    color = "yellow"
+    color = "#94B9F3"
+    text_with_linebreak = []
+    for line in text.split('\n'):
+        text_with_linebreak.append(line)
+        text_with_linebreak.append(html.Br())
+    text_with_linebreak.pop()
     
-    return dbc.Card(text, style=style, body=True, color=color)
+    return dbc.Card([
+        html.P(
+            text_with_linebreak,
+            className="card-text",
+        ),], style=style, body=True, color=color)

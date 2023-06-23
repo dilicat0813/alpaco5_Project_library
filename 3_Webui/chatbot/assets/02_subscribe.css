@@ -1,0 +1,8 @@
+.subscribe-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  max-height: 80vh;
+  overflow-y: auto;
+}

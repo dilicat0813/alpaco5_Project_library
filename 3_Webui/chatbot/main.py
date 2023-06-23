@@ -13,7 +13,12 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css', dbc.themes
 
 app = Dash(__name__, external_stylesheets=external_stylesheets, assets_folder='./assets')
 
-conversation = []
+conversation = [
+    {
+        "speaker":"bot",
+        "text": "안녕하세요 \n 도서추천 봇입니다."
+    }
+]
 chat_generator_instance = ChatGenerator(conversation)
 
 tab1 = [html.Div([
@@ -26,21 +31,21 @@ tab1 = [html.Div([
 
     html.Div([
         html.Div([
-            dcc.Input(id='input-box', type='text', placeholder='Send a message'),
-            dbc.Button('Submit', color="primary", id='submit-button', n_clicks=0),
+            dcc.Input(id='input-box', type='text', placeholder='질문을 입력해주세요', style={"font-size": "13px", 'min-width':'45vw'}),
+            dbc.Button('질문하기', color="primary", id='submit-button', n_clicks=0, style={"font-size": "13px"}),
         ], className='input-container')
     ], className='row'),]
 tab2 = [
-        html.Div([
+    html.Div([
         make_subscribe_html()
-    ], className='row')
+    ], className='row subscribe-container')
 ]
 
 app.layout = html.Div(children=[
     dbc.Tabs([
         dbc.Tab(label='도서추천 봇', children=tab1),
         dbc.Tab(label='도서추천 메일서비스', children=tab2), 
-    ])
+    ], style={"font-size": "13px", 'font-weight':'bold'})
 ], className="body__sheet")
 
 
@@ -55,7 +60,10 @@ def update_output(n_clicks, input_value):
     chat_generator_instance.add_chat(input_value, speaker="user")
     try:
         if n_clicks > 0:
-            answer = ask_librarian(input_value)
+            # answer = ask_librarian(input_value)
+            import time
+            time.sleep(0.5)
+            answer = '예시 답변 \n 다음 라인'
             chat_generator_instance.add_chat(answer, speaker="bot")
             return chat_generator_instance.make_chat_list()
         else:
@@ -67,4 +75,4 @@ def update_output(n_clicks, input_value):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
