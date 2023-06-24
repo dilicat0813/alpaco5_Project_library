@@ -16,8 +16,9 @@ def subscribe_list():
     subscribe = pd.read_csv("6.Subscribe_extract/data/subscribe.csv") #경로/이름 설정
     subscribe.drop_duplicates(subset="EMAIL", keep='last', inplace=True)
     subscribe.to_csv(file_path, index=False, encoding='utf-8-sig') #RPA 소스 파일 저장 #논리상 위치 여기가 맞음
-    DT_Query = total[(total['MUMM_LON_HALFLIFE_CO'] >= 350) & (total['MUMM_LON_HALFLIFE_CO'] <= 6000)] #반감기 데이터 중 이상치 및 상위 5퍼센트 제거
-    DT_Query = DT_Query[(DT_Query['LON_CO'] <= 6500)] #누적 대출수 상위 5퍼센트 제거
+
+    DT_Query = total[(total['MUMM_LON_HALFLIFE_CO'] >= 420) & (total['MUMM_LON_HALFLIFE_CO'] <= 5700)] #반감기 데이터 중 이상치 및 상위 5퍼센트 제거
+    DT_Query = DT_Query[(DT_Query['LON_CO'] <= 7400) & (DT_Query['LON_CO'] >= 22)] #대출수 상하위 5% 제거
 
     DT_recommend = pd.DataFrame()
 
