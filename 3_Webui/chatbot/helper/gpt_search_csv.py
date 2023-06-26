@@ -52,15 +52,16 @@ def ask_librarian(question):
     prompt_asking_sql = """ 
         csv header: {}
         csv header 설명: {}
-        질문:{}  
+        사용자입력:{}  
         다음과 같은 조건을 만족해야함, 
-        0. pandas 쿼리를 써야한다 다음과 같은 코드에서 query 에 들어갈 값 ( pd.read_csv(csv_path); csv_data.query(query); )
-        1. 사용할 수 있는 column는 TITLE_NM, AUTHR_NM, PUBLISHER_NM, BOOK_INTRCN_CN 4개이다
-        2. 쿼리에 'BOOK_INTRCN_CN'이란 열을 포함해야 됨
-        3. 질문에 연관성 있는 정보도 추출해야 함
-        4. 값만 적어주고 다른 글자는 적지 않을 것 ex) column_name.str.contains("keyword")
-        5. csv 검색시 한국어 키워드로 검색할 것
-        6. just code, no other text needed
+        1. 사용자입력을 받아 그에 관련된 책을 찾아야한다
+        2. pandas 쿼리를 써야한다 - 다음과 같은 코드에서 query 에 들어갈 값 ( pd.read_csv(csv_path); csv_data.query(query); )
+        3. 사용할 수 있는 column는 TITLE_NM, AUTHR_NM, PUBLISHER_NM, BOOK_INTRCN_CN 4개이다
+        4. 쿼리에 'BOOK_INTRCN_CN'이란 열을 포함해야 됨
+        5. 질문에 연관성 있는 정보도 추출해야 함
+        6. 값만 적어주고 다른 글자는 적지 않을 것 ex) column_name.str.contains("keyword")
+        7. 검색하는 단어는 질문에 들어간 또는 연관된 단어를 사용할 것, 영문자로 된 단어를 쓰지 않는다
+        8. just code, no other text needed
         """.format(csv_header, column_description, question)
 
     print("SQL: ", prompt_asking_sql)
@@ -72,7 +73,7 @@ def ask_librarian(question):
         .replace("정답", "").replace(":", "").replace("=", "").strip().strip('"').strip('\'')
     print("striped: ", answer_sql)
     # Checking if the connection was successful
-    query_result = csv_data.query(answer_sql)[['TITLE_NM', 'AUTHR_NM', 'PUBLISHER_NM','BOOK_INTRCN_CN','ISBN_NO']].head(8)
+    query_result = csv_data.query(answer_sql)[['TITLE_NM', 'AUTHR_NM', 'PUBLISHER_NM','BOOK_INTRCN_CN','ISBN_NO']].sample(n=8)
     print("query_result:", query_result)
     final_question = """
         책을 추천하는 사서라고 생각하고 말을 해야해
